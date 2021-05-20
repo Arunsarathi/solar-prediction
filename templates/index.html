@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>panel temperature Prediction</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Solar Panel Temperature Predictor</h1>
+    <form action="{{url_for('predict')}}" method="post">
+      <input
+        type="text"
+        name="solar energy"
+        placeholder="solar energy"
+        required="required"
+      />
+      <input
+        type="text"
+        name="solar radiation"
+        placeholder="solar radiation"
+        required="required"
+      />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">
+       PREDICT
+      </button>
+    </form>
+    <br />
+    <br />
+      Solar Panel Temperature(in celsius) =
+    {{ prediction_text }}
+    <br />
+  </body>
+</html>
